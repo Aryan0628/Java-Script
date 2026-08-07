@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chai aur code | DOM</title>
 </head>
+
 <body style="background-color: #212121; color: #fff;">
     <ul class="language">
         <li>Javascript</li>
     </ul>
-    
+
 </body>
 <script>
-    function addLanguage(langName){
-        const li=document.createElement('li');
-        li.innerHTML=`${langName}`
-        document.querySelector('.language').
-        appendChild(li)
+    function addLanguage(langName) {
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
     }
     addLanguage("Python")
     addLanguage("typescript")
     //isse aap ne ek funciton design kr liye jo list me aur cheje add kr skta hai apki website me 
 
     //optimise approach me 
-    function addopti(langName){
-        const li=document.createElement('li');
+    function addopti(langName) {
+        const li = document.createElement('li');
         li.appendChild(document.createTextNode(langName))
         document.querySelector('.language').appendChild(li)
     }
@@ -36,22 +37,23 @@
 
     //edit 
 
-    const secondlang=document.querySelector("li:nth-child(2)")
+    const secondlang = document.querySelector("li:nth-child(2)")
     console.log(secondlang)
     //secondlang.innerHTML="Mojo"
-    const newli=document.createElement('li')
-    newli.textContent="Mojo"
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
     secondlang.replaceWith(newli)
 
 
     //edit 
-    const firstlang=document.querySelector("li:first-child")
-    firstlang.outerHTML='<li>Typescript</li>'
+    const firstlang = document.querySelector("li:first-child")
+    firstlang.outerHTML = '<li>Typescript</li>'
 
 
     //remove
-    const lastlang=document.querySelector('li:last-child')
+    const lastlang = document.querySelector('li:last-child')
     lastlang.remove()
 
 </script>
+
 </html>
