@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: aqua;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul>
+            <li><img  width="200px" id="photoshop" src="" alt=""></li>
+            <li><img  width="200px" id="photoshop" src="" alt=""></li>
+            <li><img  width="200px" id="owl" src="" alt=""></li>
+            <li><img  width="200px" id="photoshop" src="" alt=""></li>
+            <li><img  width="200px" id="photoshop" src="" alt=""></li>
+        </ul>
+    </div>
+</body>
+<script>
+    //ki javascirpt ke jitna bhi code hai jitne bhi events hai woh sequentially run hote hain , except some async programming 
+    //aese hi events browser ke events hote hai , jese mouse hilaya , trackpad touch kiya 
+    //document.getElementId('owl').onclick=function(){
+        //alert('owl clicked')
+    //}//ye thori kam properties deta hai
+
+
+    document.getElementById('owl').addEventListener('click',function(e){
+        // attachEvent()
+    //jquery-on
+        console.log(e); //e ek object hai,jisme events hai
+        //mostly browser ke events and mouse ke events
+    },false)
+
+    //type,timestamp,defaultPrevented,target,toElement,srcElement,currentTarget
+    //clientX,clientY,screenX,screenY
+    //altkey,ctrlkey,shiftkey,keycode
+    //ye sare event important hai
+
+    
+
+</script>
+</html>
+
+//iska event listener ka lecture dekhlo ek bar

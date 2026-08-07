@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure Aur Chai</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id =green>Green</button>
+    
+</body>
+<script>
+    function init() {
+        var name = "Mozilla"; 
+        function displayName() {
+            console.log(name);
+            //inner function ke pass name ka access hai 
+        }
+        //agar do inner functoion hai unke varable nhi acces hai 
+        //aur parent ke pass bhi inner function ke variable ka access nhi hoga
+        displayName();
+    }
+    init();
+
+
+    function outer(){
+        let username="hitesh"
+    }
+    console.log(username)//outer scope me nhi defined hai
+
+
+
+
+    //closure//
+    function makeFunc(){
+        const name="Mozilla";
+        function displayName(){
+            console.log(name);
+        }
+        return displayName;
+        //isi ko closure khte hai 
+    }
+
+    const myfunc=makeFunc();
+    //sirf displayname ni jayega blki uska pura lexical scope uth ke jayega , lexical scope imp hai , poori memory share hoti hai
+    myFunc();
+</script>
+<script>
+    ///closure ka ek example hai ye 
+    document.getElementById("orange").onclick=function(){
+        document.body.style.backgroundColor=`orange`
+
+    }
+    document.getElementById("green").onclick=function(){
+        document.body.style.backgroundColor=`green`
+        
+    }
+    //maanlo 500 dediya fir kya kroge 
+ 
+    function clickHandler(color){
+        //document.body.style.backgroundImage=`${color}`
+        //ye kam ni krega 
+        return function(){
+            document.body.style.backgroundColor=`${color}`
+        }
+    }
+    document.getElementById('orange').onclick=clickHandler("red")
+
+</script>
+</html>

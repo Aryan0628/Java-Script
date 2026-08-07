@@ -1,0 +1,52 @@
+//Primitive
+//call by value inki copy krke unme changes hote hai
+// 7 types: String,Number,Boolean,null,undefined,Symbol,BigInt
+
+const score=100
+const scorevalue=100.3
+const isloggedin=false
+
+const id=Symbol('123')
+const anotherId=Symbol('123')
+console.log(id===anotherId)
+
+const bigNumbe=425436565764746767647n
+console.log(typeof bigNumber)
+//gives undefined
+
+//it will return false ,yahi symbol ka kam hota
+//Reference(Non Primitive )
+
+///Array,Objects,Functions
+//inka datatype object hi hota hai , baki function ka object function
+
+const heroes=["shaktiman","nagraj","doga"]
+
+let myobj={
+    name:"hitesh",
+    age:22,
+}
+
+const myfunction=function(){
+    console.log("Hello World");
+}
+
+
+
+
+//stack (Primitive)(copy), heap memory(Non-primitive)(reference)
+let myYoutubename="hiteshchoudharydotcom"
+let anothername=myYoutubename
+anothername="chaiaurcode"
+
+console.log(myYoutubename); //hiteshchoudharydotcom
+console.log(anothername);//chaiaurcode
+
+let userone={
+    email:"user@google.com",
+
+}
+let usertwo=userone
+usertwo.email="hitesh@gmail.com"
+console.log(userone.email);
+console.log(usertwo.email);//dono me change ho gyi
