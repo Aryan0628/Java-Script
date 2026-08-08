@@ -1,37 +1,36 @@
 //ES6
-
-class User{
-    constructor(username,email,password){
-        this.username=username;
-        this.email=email;
-        this.password=password
+class User {
+    constructor(username, email, password) {
+        this.username = username;
+        this.email = email;
+        this.password = password
     }
-    encryptPassword(){
+    encryptPassword() {
         return `${this.password}abc`
     }
-    changeUsername(){
+    changeUsername() {
         return `${this.username.toUpperCase()}`
     }
 }
-const chai=new User("chai","chai@gmail.com",123)
+const chai = new User("chai", "chai@gmail.com", 123)
 console.log(chai.encryptPassword());
 console.log(chai.changeUsername());
 
 //behind the scene 
-function User(username,email,password){
-    this.username=username;
-    this.email=email;
-    this.password=password
+function User(username, email, password) {
+    this.username = username;
+    this.email = email;
+    this.password = password
 }
 
-User.prototype.encryptPassword=function(){
+User.prototype.encryptPassword = function () {
     return `${this.password}abc`
 }
-User.prototype.changeUsername=function(){
+User.prototype.changeUsername = function () {
     return `${this.username.toUpperCase()}`
 }
 
-const chai1=new User("chai","chai@gmail.com",123)
+const chai1 = new User("chai", "chai@gmail.com", 123)
 console.log(chai1.encryptPassword());
 console.log(chai1.changeUsername());
 

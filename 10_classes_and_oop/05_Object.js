@@ -1,7 +1,7 @@
-function multiply(nums){
-    return num*5
+function multiply(nums) {
+    return num * 5
 }
-multiply.power=2;
+multiply.power = 2;
 //function bhi ek object
 console.log(multiply(5)); //25
 console.log(multiply.power); //2
@@ -10,21 +10,21 @@ console.log(multiply.prototype); //{}
 
 
 
-function createUser(username,score){
-    this.username=username
-    this.score=score;
+function createUser(username, score) {
+    this.username = username
+    this.score = score;
 }
 
-createUser.prototype.increment=function(){
+createUser.prototype.increment = function () {
     this.score++;
     //ab niche do statement call honge unka refrnece mil gya this se
     //context milgya chai aur tea ka ,current context ka 
 }
-createUser.prototype.printMe=function(){
+createUser.prototype.printMe = function () {
     console.log(`score is ${this.score}`);
 }
-const chai =new createUser("chai",25)
-const tea=createUser("tea",250)
+const chai = new createUser("chai", 25)
+const tea = createUser("tea", 250)
 
 chai.printMe()
 //can not read properties of undefined isliye new banana hai
@@ -37,3 +37,28 @@ chai.printMe()
 // The constructor is called: The constructor is called with the specified arguments and this is bound to the newly created object . If no explicit return value is specifis form thr consturcor ,Jaca script assumes this,  newly created object,tobe the inrtended return value 
 
 // The new object is returned:After the contructor has been called , if it does not return a non-primitive value (object,array,function,etc.), the newly created object is returned
+
+/*
+ * ============================================================================
+ * The 4 ACTUAL Ways to Create Objects in JavaScript
+ * ============================================================================
+ * If we are talking strictly about how to physically create objects in 
+ * JavaScript, there are exactly four main ways to do it:
+ *
+ * 1. Object Literals: 
+ *    const user = { name: "chai" } 
+ *    (Quickest, acts as a singleton).
+ *
+ * 2. Constructor Functions: 
+ *    const user = new createUser("chai") 
+ *    (The old-school factory way).
+ *
+ * 3. ES6 Classes: 
+ *    const user = new User("chai") 
+ *    (The modern factory way).
+ *
+ * 4. Object.create(): 
+ *    const user = Object.create(parentObject) 
+ *    (The direct prototype linker).
+ * ============================================================================
+ */
