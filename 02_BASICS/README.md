@@ -55,7 +55,15 @@ Array.of(100, 200, 300)          // [100, 200, 300] — values → array
 
 ## Objects
 
-Two ways to create: **Object literal `{}`** (non-singleton) vs **`Object.create()`** (singleton, via constructor).
+Two ways to create: **Object literal `{}`** vs **constructor** (`new Object()` / `Object.create()`).
+> Course note: "literal → not singleton, constructor → singleton". In practice both `{}` and `new Object()` give you one plain object — just remember literals are the preferred way.
+
+### Functions inside objects
+```js
+JsUser.greeting = function () { console.log(`hello, ${this.name}`) }  // `this` = JsUser
+JsUser.greeting      // [Function] — reference only, doesn't run
+JsUser.greeting()    // runs → "hello, Aryan"
+```
 
 ### Accessing Properties
 
@@ -128,6 +136,13 @@ const { fullname: { firstname } } = user
 - Keys **must** be double-quoted strings (unlike JS objects).
 - APIs return JSON → parse with `JSON.parse(str)`, stringify with `JSON.stringify(obj)`.
 - API responses can also be **arrays of objects**: `[{...}, {...}]`.
+
+---
+
+## ⚠️ Mistakes in your practice files
+- `02_arrays.js`: `scroe2` declared but `score2` used → ReferenceError.
+- `04_objects.js`: key is `firestname`, accessed as `firstname` → `undefined`. Destructuring comment says "hitesh" but value is "Aryan".
+- `03_objects.js`: `console.log(JsUser.greeting())` prints "hello" then `undefined` (function returns nothing).
 
 ---
 

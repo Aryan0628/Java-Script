@@ -86,9 +86,25 @@ num.toPrecision(4)       // "123.9"  → total significant digits
 num.toLocaleString('en-IN') // "10,00,000" → Indian comma format
 ```
 
+```js
+new Number(100)          // Number OBJECT (wrapper) — avoid; typeof → "object"
+num.toString()           // "100" → then .length works
+```
+
+**Math (static object):**
+```js
+Math.abs(-4)      // 4
+Math.round(4.3)   // 4   (4.5 → 5)
+Math.ceil(4.2)    // 5   → always UP
+Math.floor(4.9)   // 4   → always DOWN
+Math.min(1,2,3)   // 1   | Math.max(1,2,3) → 3
+Math.random()     // 0 ≤ x < 1
+```
+
 **Random number in range `[min, max]`** (very common interview question):
 ```js
 Math.floor(Math.random() * (max - min + 1)) + min
+// ⚠️ Math.floor(Math.random()) * ... is WRONG → floor(0.x) is always 0 → always gives min
 ```
 
 ---
@@ -102,6 +118,35 @@ Math.floor(Date.now() / 1000)  // seconds since epoch
 ```
 
 > ⚠️ **Months are 0-indexed**: January = `0`, December = `11`. This is a classic off-by-one bug source.
+
+```js
+new Date(2023, 0, 23)        // Mon Jan 23 2023  (year, monthIndex, day, hour, min)
+new Date("2023-01-14")       // from string (YYYY-MM-DD)
+d.toString() / d.toDateString() / d.toLocaleString() / d.toLocaleDateString() / d.toLocaleTimeString()
+d.getTime()                  // ms since epoch for THAT date (useful to compare dates)
+d.getDay()                   // weekday 0 (Sun) – 6 (Sat)
+d.getMonth() + 1             // human month number
+d.toLocaleString('default', { weekday: "long" })  // "Monday" — options object customises output
+```
+
+---
+
+## Stack vs Heap (from `datatype_summary`)
+
+```js
+let a = "hitesh"; let b = a; b = "chai"   // a unchanged → primitives COPIED (stack)
+let u1 = { email: "a@x.com" }; let u2 = u1; u2.email = "b@x.com"  // u1 ALSO changed → same heap reference
+```
+`typeof 123n` → `"bigint"`, `typeof function(){}` → `"function"`, `typeof []` / `typeof {}` → `"object"`.
+
+---
+
+## ⚠️ Mistakes in your practice files
+- `toLocalString` → `toLocaleString`; `console.long` → `console.log`; `anotherstring` / `mycreatedate` / `newDay` → name mismatches.
+- `Math.floor(4.2)` is **4**, not 5 (comment is wrong).
+- `url.replace(...)` result isn't stored — strings are immutable, `url` stays the same.
+- `datatype_summary`: `bigNumbe` vs `bigNumber` → that's why it printed `undefined`; real answer is `"bigint"`.
+- `01_test.js`: `accountEmail` (capital E) ≠ `accountemail` → creates an accidental global (error in strict mode).
 
 ---
 
